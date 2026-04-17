@@ -1,0 +1,5 @@
+Error: Unsupported format: 
+    at imageDecode (file:///C:/Users/advan/Documents/afrida-portfolio/node_modules/@imgly/background-removal-node/dist/index.mjs:48:13)
+    at async imageSourceToImageData (file:///C:/Users/advan/Documents/afrida-portfolio/node_modules/@imgly/background-removal-node/dist/index.mjs:240:13)
+    at async removeBackground (file:///C:/Users/advan/Documents/afrida-portfolio/node_modules/@imgly/background-removal-node/dist/index.mjs:468:23)
+    at async processImage (file:///C:/Users/advan/Documents/afrida-portfolio/remove-bg.js:15:18)

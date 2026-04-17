@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    cursor: none;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1A1A1A;
+    color: #F5F0EB;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  a, button {
+    cursor: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1A1A1A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C8F060;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .blob {
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  }
+  .blob-2 {
+    border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+  }
+  .blob-3 {
+    border-radius: 70% 30% 60% 40% / 40% 70% 30% 60%;
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(circle, #C8F060 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .dot-pattern-dark {
+    background-image: radial-gradient(circle, #1A1A1A 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .dot-pattern-pink {
+    background-image: radial-gradient(circle, #F0097A 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #C8F060, #F0097A, #E84DC0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-2 {
+    background: linear-gradient(90deg, #F0097A, #E84DC0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .magnetic-btn {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .card-tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .card-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+  }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* Custom cursor */
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #C8F060;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+#cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(200, 240, 96, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+#cursor-dot.cursor-hover {
+  width: 16px;
+  height: 16px;
+  background: #F0097A;
+}
+
+#cursor-ring.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(240, 9, 122, 0.5);
+}
+
+/* Star shape */
+.star-shape {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Animated underline */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #C8F060;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}

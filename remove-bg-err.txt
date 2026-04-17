@@ -1,0 +1,41 @@
+﻿Processing image...
+node : Error removing 
+background: Error: 
+Unsupported protocol: c:
+At line:1 char:1
++ node remove-bg.js 2>&1 
+| Out-File -Encoding utf8 
+remove-bg-err.txt
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (E  
+  rror removing ...ed p   
+ rotocol: c::String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+    at loadFromURI (file:/
+//C:/Users/advan/Documents
+/afrida-portfolio/node_mod
+ules/@imgly/background-rem
+oval-node/dist/index.mjs:1
+37:13)
+    at 
+imageSourceToImageData (fi
+le:///C:/Users/advan/Docum
+ents/afrida-portfolio/node
+_modules/@imgly/background
+-removal-node/dist/index.m
+js:234:26)
+    at removeBackground (f
+ile:///C:/Users/advan/Docu
+ments/afrida-portfolio/nod
+e_modules/@imgly/backgroun
+d-removal-node/dist/index.
+mjs:468:29)
+    at async processImage 
+(file:///C:/Users/advan/Do
+cuments/afrida-portfolio/r
+emove-bg.js:10:18)
