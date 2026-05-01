@@ -37,7 +37,7 @@ function Counter({ from = 0, to, suffix = '' }) {
 const stats = [
   { value: 0, suffix: '+', label: 'Years Experience' },
   { value: 0, suffix: '+', label: 'Projects Completed' },
-  { value: 1, suffix: '+', label: 'Happy Clients' },
+  { value: 0, suffix: '+', label: 'Happy Clients' },
   { value: 5, suffix: '★', label: 'Average Rating' },
 ]
 
@@ -66,7 +66,7 @@ export default function About() {
             <div className="relative w-full max-w-sm">
               {/* Decorative background for the facts area */}
               <div className="absolute -inset-4 bg-gradient-to-br from-lime/20 to-hotpink/10 rounded-[3rem] blur-2xl opacity-50" />
-              
+
               <div className="relative space-y-4">
                 <div className="mb-8">
                   <h3 className="font-poppins font-black text-dark text-2xl mb-2 flex items-center gap-3">
@@ -97,14 +97,14 @@ export default function About() {
                 </div>
 
                 {/* Decorative elements to fill space */}
-                <motion.div 
+                <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
                   className="absolute -top-10 -right-10 opacity-20"
                 >
                   <StarDecor size={60} color="#F0097A" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 4, repeat: Infinity }}
                   className="absolute -bottom-6 -left-6 opacity-20"
