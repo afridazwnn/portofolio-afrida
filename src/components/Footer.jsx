@@ -31,13 +31,6 @@ function LinkedinIcon({ size = 16 }) {
   )
 }
 
-function TwitterIcon({ size = 16 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  )
-}
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -49,10 +42,9 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { icon: InstagramIcon, label: 'Instagram', href: 'https://instagram.com' },
-  { icon: LinkedinIcon, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: GithubIcon, label: 'GitHub', href: 'https://github.com' },
-  { icon: TwitterIcon, label: 'Twitter', href: 'https://twitter.com' },
+  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/afridazwn?igsh=MW4zY2J1YmJhMXR0ZA==', color: 'hover:text-hotpink' },
+  { icon: LinkedinIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/afrida-rizwana-b604413a3/', color: 'hover:text-lime' },
+  { icon: GithubIcon, label: 'GitHub', href: 'https://github.com/afridazwnn', color: 'hover:text-cream' },
 ]
 
 export default function Footer() {
@@ -140,7 +132,7 @@ export default function Footer() {
               Have a project in mind? Let's build something amazing.
             </p>
             <motion.a
-              href="mailto:afrida@example.com"
+              href="mailto:afridarizwana@gmail.com"
               className="inline-flex items-center gap-2 bg-lime text-dark font-poppins font-semibold text-sm px-5 py-3 rounded-full hover:bg-hotpink hover:text-white transition-all duration-300"
               whileHover={{ scale: 1.05 }}
             >

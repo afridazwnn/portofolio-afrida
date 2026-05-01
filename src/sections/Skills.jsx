@@ -13,17 +13,6 @@ const skillCategories = [
     ],
   },
   {
-    id: 'dev',
-    label: 'Development',
-    color: 'bg-lime',
-    textColor: 'text-dark',
-    skills: [
-      { name: 'React JS', icon: '⚛️', level: 20 },
-      { name: 'Tailwind CSS', icon: '💨', level: 50 },
-      { name: 'JavaScript', icon: '💛', level: 35 },
-    ],
-  },
-  {
     id: 'tools',
     label: 'Tools & More',
     color: 'bg-pinkmed',
@@ -33,9 +22,22 @@ const skillCategories = [
       { name: 'VS Code', icon: '💻', level: 95 },
     ],
   },
+  {
+    id: 'dev',
+    label: 'Development',
+    color: 'bg-lime',
+    textColor: 'text-dark',
+    skills: [
+      { name: 'React JS', icon: '⚛️', level: 20 },
+      { name: 'Tailwind CSS', icon: '💨', level: 50 },
+      { name: 'JavaScript', icon: '💛', level: 35 },
+      { name: 'Dart', icon: '🎯', level: 45 },
+      { name: 'PHP', icon: '🐘', level: 40 },
+    ],
+  },
 ]
 
-function SkillCard({ skill, index, catColor }) {
+function SkillCard({ skill, index }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -56,16 +58,36 @@ function SkillCard({ skill, index, catColor }) {
           <span className="text-2xl">{skill.icon}</span>
           <span className="font-poppins font-medium text-cream text-sm">{skill.name}</span>
         </div>
-        <span className="font-poppins font-bold text-lime text-sm">{skill.level}%</span>
       </div>
-      <div className="w-full bg-cream/10 rounded-full h-1.5">
-        <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-lime to-pinkmed"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.07 + 0.3, duration: 0.8, ease: 'easeOut' }}
-        />
+    </motion.div>
+  )
+}
+
+function CategorySection({ cat, catIdx, isHalf }) {
+  return (
+    <motion.div
+      key={cat.id}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: catIdx * 0.15, duration: 0.6 }}
+    >
+      {/* Category label */}
+      <div className="flex items-center gap-4 mb-6">
+        <span className={`${cat.color} ${cat.textColor} font-poppins font-bold text-sm px-4 py-1.5 rounded-full`}>
+          {cat.label}
+        </span>
+        <div className="flex-1 h-px bg-cream/10" />
+      </div>
+
+      {/* Skills grid */}
+      <div className={`grid gap-4 ${isHalf
+        ? 'grid-cols-2 md:grid-cols-2'
+        : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5'
+        }`}>
+        {cat.skills.map((skill, i) => (
+          <SkillCard key={skill.name} skill={skill} index={i} />
+        ))}
       </div>
     </motion.div>
   )
@@ -102,38 +124,21 @@ export default function Skills() {
           </p>
         </FadeInUp>
 
-        {/* Skill categories — asymmetric grid */}
+        {/* Skill categories */}
         <div className="space-y-12">
-          {skillCategories.map((cat, catIdx) => (
-            <motion.div
-              key={cat.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: catIdx * 0.15, duration: 0.6 }}
-            >
-              {/* Category label */}
-              <div className="flex items-center gap-4 mb-6">
-                <span className={`${cat.color} ${cat.textColor} font-poppins font-bold text-sm px-4 py-1.5 rounded-full`}>
-                  {cat.label}
-                </span>
-                <div className="flex-1 h-px bg-cream/10" />
-              </div>
+          {/* Top Row: Design & Tools (Side-by-Side on Desktop) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {skillCategories.slice(0, 2).map((cat, idx) => (
+              <CategorySection key={cat.id} cat={cat} catIdx={idx} isHalf={true} />
+            ))}
+          </div>
 
-              {/* Skills grid — different widths per category */}
-              <div className={`grid gap-4 ${catIdx === 0
-                ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6'
-                : catIdx === 1
-                  ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6'
-                  : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6'
-                }`}>
-                {cat.skills.map((skill, i) => (
-                  <SkillCard key={skill.name} skill={skill} index={i} catColor={cat.color} />
-                ))}
-              </div>
-            </motion.div>
+          {/* Bottom Row: Development (Full Width) */}
+          {skillCategories.slice(2).map((cat, idx) => (
+            <CategorySection key={cat.id} cat={cat} catIdx={idx + 2} isHalf={false} />
           ))}
         </div>
+
 
         {/* Extra: floating skill badges */}
         <FadeInUp delay={0.4} className="mt-16 text-center">

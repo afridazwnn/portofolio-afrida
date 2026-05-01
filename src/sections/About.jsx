@@ -141,7 +141,7 @@ export default function About() {
             </p>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}

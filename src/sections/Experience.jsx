@@ -44,7 +44,7 @@ function TimelineItem({ exp, index }) {
           style={{ borderLeft: isRight ? 'none' : `3px solid ${exp.color}`, borderRight: isRight ? `3px solid ${exp.color}` : 'none' }}
         >
           <div className={`flex items-center gap-2 mb-3 ${isRight ? 'md:justify-end' : ''}`}>
-            {exp.type === 'edu' ? <GraduationCap size={14} className="text-lime" /> : <Briefcase size={14} className="text-hotpink" />}
+            {exp.type.toLowerCase() === 'edu' ? <GraduationCap size={14} className="text-lime" /> : <Briefcase size={14} className="text-hotpink" />}
             <span className="font-poppins text-cream/40 text-xs tracking-widest uppercase">{exp.period}</span>
           </div>
           <h3 className="font-poppins font-bold text-cream text-xl mb-1">{exp.role}</h3>
@@ -73,7 +73,7 @@ function TimelineItem({ exp, index }) {
           className="w-10 h-10 rounded-full border-2 flex items-center justify-center z-10"
           style={{ borderColor: exp.color, background: '#1A1A1A' }}
         >
-          {exp.type === 'edu'
+          {exp.type.toLowerCase() === 'edu'
             ? <GraduationCap size={16} style={{ color: exp.color }} />
             : <Briefcase size={16} style={{ color: exp.color }} />}
         </motion.div>

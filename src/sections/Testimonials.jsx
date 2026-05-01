@@ -14,40 +14,7 @@ const testimonials = [
     textColor: '#1A1A1A',
     quote: '"Working with Afrida on my mobile app project was a great experience. She understood my requirements clearly and transformed them into a smooth, user-friendly application. Her attention to detail and ability to deliver on time made the whole process stress-free. I’m really satisfied with the final result."',
     rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Dinda',
-    role: 'CEO Dynoz',
-    company: 'Digital Agency',
-    avatar: 'DN',
-    avatarColor: '#F0097A',
-    textColor: '#F5F0EB',
-    quote: "Afrida did an amazing job rebranding my brand, Dynoz. She brought fresh ideas and created a modern, cohesive identity that truly represents my business. Her design sense is strong, and she was very responsive throughout the process. I highly recommend her for branding projects.",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Syaifatul',
-    role: 'Digital Marketing - Junior',
-    company: 'Creative Studio',
-    avatar: 'SY',
-    avatarColor: '#E84DC0',
-    textColor: '#F5F0EB',
-    quote: "I’m very happy with the e-commerce website Afrida built for my business. The design is clean, professional, and easy to navigate. She made sure everything worked perfectly, from product display to checkout. It has really helped improve my online sales",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: 'Wina',
-    role: 'HRD',
-    company: 'FinTech Co',
-    avatar: 'AF',
-    avatarColor: '#F5F0EB',
-    textColor: '#1A1A1A',
-    quote: "Afrida handled my data entry tasks with great accuracy and efficiency. She completed everything on time, even with tight deadlines. Her work is reliable, and I appreciate her professionalism. I would definitely work with her again.",
-    rating: 5,
-  },
+  }
 ]
 
 function StarRating({ count }) {

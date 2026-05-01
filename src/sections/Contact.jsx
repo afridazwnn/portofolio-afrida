@@ -34,24 +34,16 @@ function LinkedinIcon({ size = 18 }) {
   )
 }
 
-function TwitterIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  )
-}
 
 const socialLinks = [
-  { icon: InstagramIcon, label: 'Instagram', href: 'https://instagram.com', color: 'hover:text-hotpink' },
-  { icon: LinkedinIcon, label: 'LinkedIn', href: 'https://linkedin.com', color: 'hover:text-lime' },
-  { icon: GithubIcon, label: 'GitHub', href: 'https://github.com/', color: 'hover:text-cream' },
-  { icon: TwitterIcon, label: 'Twitter/X', href: 'https://twitter.com', color: 'hover:text-pinkmed' },
+  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/afridazwn?igsh=MW4zY2J1YmJhMXR0ZA==', color: 'hover:text-hotpink' },
+  { icon: LinkedinIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/afrida-rizwana-b604413a3/', color: 'hover:text-lime' },
+  { icon: GithubIcon, label: 'GitHub', href: 'https://github.com/afridazwnn', color: 'hover:text-cream' },
 ]
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'afridrizwana@gmail.com', href: 'mailto:afridarizwana@gmail.com' },
-  { icon: Phone, label: 'Phone', value: '+62 895-0412-0364', href: 'tel:+6289504120364' },
+  { icon: Mail, label: 'Email', value: 'afridarizwana@gmail.com', href: 'mailto:afridarizwana@gmail.com' },
+  { icon: Phone, label: 'WhatsApp', value: '+62 895-0412-0364', href: 'https://wa.me/6289504120364' },
   { icon: MapPin, label: 'Location', value: 'Bogor, Indonesia 🇮🇩', href: '#' },
 ]
 
@@ -60,6 +52,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
   const [focused, setFocused] = useState(null)
+  const [startTime] = useState(Date.now()) // Track when page loaded to catch fast bots
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -67,18 +60,40 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const formDataObj = new FormData(e.target)
+    
+    // 1. Honeypot check
+    if (formDataObj.get('botcheck')) return
+
+    // 2. Timing check (if filled in < 3 seconds, it's likely a bot)
+    const timeTaken = (Date.now() - startTime) / 1000
+    if (timeTaken < 3) {
+      console.warn('Bot detected: Too fast')
+      return
+    }
+
     setStatus('sending')
+    formDataObj.append('access_key', '8ac8479f-30f6-43bb-beb4-d052b3beb039')
 
-    // EmailJS — replace with your actual service/template/key
-    // emailjs.sendForm('SERVICE_ID', 'TEMPLATE_ID', formRef.current, 'PUBLIC_KEY')
-    //   .then(() => setStatus('success'))
-    //   .catch(() => setStatus('error'))
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataObj
+      })
 
-    // Demo: simulate success after 1.5s
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 1500)
+      const data = await response.json()
+
+      if (data.success) {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        console.error('Error', data)
+        setStatus('error')
+      }
+    } catch (error) {
+      console.error('Error', error)
+      setStatus('error')
+    }
   }
 
   const inputClass = (field) => `
@@ -183,33 +198,7 @@ export default function Contact() {
           {/* RIGHT — Form */}
           <FadeInRight className="lg:col-span-8" delay={0.2}>
             <div className="bg-cream/5 border border-cream/10 rounded-3xl p-8 md:p-10">
-              {status === 'success' ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center py-16 text-center"
-                >
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 0.5, repeat: 3 }}
-                    className="text-7xl mb-6"
-                  >
-                    🎉
-                  </motion.div>
-                  <h3 className="font-poppins font-black text-lime text-3xl mb-3">Message Sent!</h3>
-                  <p className="font-poppins text-cream/60 mb-8">
-                    Thanks for reaching out! I'll get back to you within 24 hours.
-                  </p>
-                  <motion.button
-                    onClick={() => setStatus('idle')}
-                    className="bg-lime text-dark font-poppins font-semibold px-6 py-3 rounded-full"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    Send Another Message
-                  </motion.button>
-                </motion.div>
-              ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="font-poppins text-cream/60 text-xs tracking-widest uppercase block mb-2">Your Name</label>
@@ -243,6 +232,9 @@ export default function Contact() {
                     </div>
                   </div>
 
+                  {/* Honeypot field (hidden) */}
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                   <div>
                     <label className="font-poppins text-cream/60 text-xs tracking-widest uppercase block mb-2">Subject</label>
                     <input
@@ -275,6 +267,18 @@ export default function Contact() {
                     />
                   </div>
 
+                  {status === 'error' && (
+                    <p className="text-red-400 text-sm font-poppins text-center bg-red-400/10 py-2 rounded-lg border border-red-400/20">
+                      Oops! Something went wrong. Please try again.
+                    </p>
+                  )}
+
+                  {status === 'success' && (
+                    <p className="text-lime text-sm font-poppins text-center bg-lime/10 py-2 rounded-lg border border-lime/20">
+                      ✦ Message sent successfully! I'll get back to you soon.
+                    </p>
+                  )}
+
                   <motion.button
                     type="submit"
                     disabled={status === 'sending'}
@@ -303,7 +307,6 @@ export default function Contact() {
                     I typically respond within 24 hours. No spam, ever. ✌️
                   </p>
                 </form>
-              )}
             </div>
           </FadeInRight>
         </div>

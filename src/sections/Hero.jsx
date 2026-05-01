@@ -115,11 +115,11 @@ export default function Hero() {
                 Hello, I'm
               </p>
               <h1 className="font-poppins font-black leading-none">
-                <span className="text-cream block text-7xl md:text-8xl xl:text-9xl">
+                <span className="text-cream block text-6xl md:text-8xl xl:text-9xl">
                   Afrida
                 </span>
                 <span
-                  className="block text-5xl md:text-6xl xl:text-7xl mt-1"
+                  className="block text-4xl md:text-6xl xl:text-7xl mt-1"
                   style={{ WebkitTextStroke: '2px #C8F060', color: 'transparent' }}
                 >
                   Rizwana
@@ -210,30 +210,30 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -top-6 -left-8 bg-dark border border-cream/10 rounded-2xl px-4 py-3 shadow-xl"
+                className="absolute -top-4 -left-4 md:-top-6 md:-left-8 bg-dark border border-cream/10 rounded-xl md:rounded-2xl px-3 py-2 md:px-4 md:py-3 shadow-xl"
               >
-                <p className="font-poppins font-black text-lime text-2xl">3+</p>
-                <p className="font-poppins text-cream/60 text-xs mt-0.5">Years Exp.</p>
+                <p className="font-poppins font-black text-lime text-xl md:text-2xl">3+</p>
+                <p className="font-poppins text-cream/60 text-[10px] md:text-xs mt-0.5">Years Exp.</p>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2, duration: 0.5 }}
-                className="absolute -bottom-4 -right-6 bg-hotpink rounded-2xl px-4 py-3 shadow-xl"
+                className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-6 bg-hotpink rounded-xl md:rounded-2xl px-3 py-2 md:px-4 md:py-3 shadow-xl"
               >
-                <p className="font-poppins font-black text-white text-2xl">20+</p>
-                <p className="font-poppins text-white/80 text-xs mt-0.5">Projects Done</p>
+                <p className="font-poppins font-black text-white text-xl md:text-2xl">20+</p>
+                <p className="font-poppins text-white/80 text-[10px] md:text-xs mt-0.5">Projects Done</p>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.4, duration: 0.5 }}
-                className="absolute top-1/2 -right-14 bg-cream rounded-2xl px-4 py-3 shadow-xl"
+                className="absolute top-1/2 -right-4 md:-right-14 bg-cream rounded-xl md:rounded-2xl px-3 py-2 md:px-4 md:py-3 shadow-xl"
               >
-                <p className="font-poppins font-black text-dark text-2xl">15+</p>
-                <p className="font-poppins text-dark/60 text-xs mt-0.5">Happy Clients</p>
+                <p className="font-poppins font-black text-dark text-xl md:text-2xl">15+</p>
+                <p className="font-poppins text-dark/60 text-[10px] md:text-xs mt-0.5">Happy Clients</p>
               </motion.div>
             </div>
           </motion.div>
