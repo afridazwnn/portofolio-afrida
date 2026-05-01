@@ -6,13 +6,13 @@ import { Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 const testimonials = [
   {
     id: 1,
-    name: 'Meitanti',
-    role: 'Web Development - Senior',
-    company: 'TechStartup',
-    avatar: 'MT',
+    name: 'User',
+    role: '-',
+    company: '-',
+    avatar: 'U',
     avatarColor: '#C8F060',
     textColor: '#1A1A1A',
-    quote: '"Working with Afrida on my mobile app project was a great experience. She understood my requirements clearly and transformed them into a smooth, user-friendly application. Her attention to detail and ability to deliver on time made the whole process stress-free. I’m really satisfied with the final result."',
+    quote: '"Coming Soon"',
     rating: 5,
   }
 ]

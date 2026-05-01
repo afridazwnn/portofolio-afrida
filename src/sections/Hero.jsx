@@ -212,8 +212,8 @@ export default function Hero() {
                 transition={{ delay: 1, duration: 0.5 }}
                 className="absolute -top-4 -left-4 md:-top-6 md:-left-8 bg-dark border border-cream/10 rounded-xl md:rounded-2xl px-3 py-2 md:px-4 md:py-3 shadow-xl"
               >
-                <p className="font-poppins font-black text-lime text-xl md:text-2xl">3+</p>
-                <p className="font-poppins text-cream/60 text-[10px] md:text-xs mt-0.5">Years Exp.</p>
+                <p className="font-poppins font-black text-lime text-xl md:text-2xl">Fresh</p>
+                <p className="font-poppins text-cream/60 text-[10px] md:text-xs mt-0.5">Graduate.</p>
               </motion.div>
 
               <motion.div
@@ -222,7 +222,7 @@ export default function Hero() {
                 transition={{ delay: 1.2, duration: 0.5 }}
                 className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-6 bg-hotpink rounded-xl md:rounded-2xl px-3 py-2 md:px-4 md:py-3 shadow-xl"
               >
-                <p className="font-poppins font-black text-white text-xl md:text-2xl">20+</p>
+                <p className="font-poppins font-black text-white text-xl md:text-2xl">3+</p>
                 <p className="font-poppins text-white/80 text-[10px] md:text-xs mt-0.5">Projects Done</p>
               </motion.div>
 
@@ -232,7 +232,7 @@ export default function Hero() {
                 transition={{ delay: 1.4, duration: 0.5 }}
                 className="absolute top-1/2 -right-4 md:-right-14 bg-cream rounded-xl md:rounded-2xl px-3 py-2 md:px-4 md:py-3 shadow-xl"
               >
-                <p className="font-poppins font-black text-dark text-xl md:text-2xl">15+</p>
+                <p className="font-poppins font-black text-dark text-xl md:text-2xl">0</p>
                 <p className="font-poppins text-dark/60 text-[10px] md:text-xs mt-0.5">Happy Clients</p>
               </motion.div>
             </div>

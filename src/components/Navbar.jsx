@@ -110,35 +110,69 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 right-0 bottom-0 z-40 bg-dark/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 bg-dark/95 backdrop-blur-xl flex flex-col p-8"
           >
-            {navLinks.map((link, i) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.08 }}
-                className="font-poppins font-bold text-4xl text-cream hover:text-lime transition-colors"
+            {/* Header in menu */}
+            <div className="flex justify-between items-center mb-16">
+              <div className="font-poppins font-bold text-xl">
+                <span className="text-cream">AF</span>
+                <span className="text-lime">.</span>
+              </div>
+              <button 
+                onClick={() => setMobileOpen(false)}
+                className="w-12 h-12 rounded-full bg-cream/5 border border-cream/10 flex items-center justify-center text-cream"
               >
-                {link.label}
-              </motion.a>
-            ))}
-            <motion.a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="mt-4 bg-lime text-dark font-poppins font-semibold px-8 py-3 rounded-full text-lg"
-            >
-              Hire Me ✦
-            </motion.a>
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-col gap-6">
+              <p className="font-poppins text-cream/30 text-xs tracking-[0.2em] uppercase mb-2">Navigation</p>
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.1 }}
+                  className="group flex items-end gap-4"
+                >
+                  <span className="font-poppins text-lime/40 text-sm mb-2">0{i + 1}</span>
+                  <span className="font-poppins font-black text-5xl text-cream group-hover:text-lime transition-colors">
+                    {link.label}
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Bottom Section */}
+            <div className="mt-auto pt-12 border-t border-cream/5">
+              <div className="flex flex-col gap-8">
+                <div>
+                  <p className="font-poppins text-cream/30 text-xs tracking-[0.2em] uppercase mb-4">Get in Touch</p>
+                  <a href="mailto:afridarizwana@gmail.com" className="font-poppins text-cream text-lg hover:text-lime transition-colors">
+                    afridarizwana@gmail.com
+                  </a>
+                </div>
+                
+                <motion.a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, '#contact')}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="bg-lime text-dark font-poppins font-bold py-4 rounded-2xl flex items-center justify-center text-lg shadow-lg shadow-lime/10"
+                >
+                  Start a Project ✦
+                </motion.a>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

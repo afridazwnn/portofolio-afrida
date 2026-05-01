@@ -61,56 +61,57 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* LEFT — Visual */}
-          <FadeInLeft className="lg:col-span-5 flex justify-center relative">
-            <div className="relative">
-              {/* Blob photo frame */}
-              <motion.div
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative w-72 h-72 md:w-80 md:h-80"
-              >
-                {/* Outer ring */}
-                <div className="absolute -inset-4 border-4 border-dashed border-lime/40 blob-3 animate-spin-slow" />
-
-                {/* Main blob */}
-                <div className="absolute inset-0 bg-dark blob-2" />
-                <div className="absolute inset-2 bg-gradient-to-br from-hotpink to-pinkmed blob flex items-center justify-center overflow-hidden">
-                  <span className="font-poppins font-black text-9xl text-white/10 select-none">AZ</span>
+          {/* LEFT — Visual (Now Fun Facts) */}
+          <FadeInLeft className="lg:col-span-5 flex justify-center items-center">
+            <div className="relative w-full max-w-sm">
+              {/* Decorative background for the facts area */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-lime/20 to-hotpink/10 rounded-[3rem] blur-2xl opacity-50" />
+              
+              <div className="relative space-y-4">
+                <div className="mb-8">
+                  <h3 className="font-poppins font-black text-dark text-2xl mb-2 flex items-center gap-3">
+                    Fun Facts <span className="text-hotpink">✦</span>
+                  </h3>
+                  <div className="w-12 h-1.5 bg-lime rounded-full" />
                 </div>
 
-                <div className="absolute inset-4 blob overflow-hidden border-2 border-dark/10 bg-lime/10">
-                  <img src="/afrida-avatar.png" alt="Afrida Rizwana" className="w-full h-full z-10 relative object-cover scale-[1.4] -translate-y-10 mix-blend-normal" />
-                </div>
-
-                {/* Star overlay */}
-                <motion.div
-                  className="absolute -top-4 -right-4"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-                >
-                  <StarDecor size={36} color="#C8F060" />
-                </motion.div>
-              </motion.div>
-
-              {/* Fun facts card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute -bottom-8 -right-8 bg-dark rounded-2xl p-4 shadow-2xl w-52"
-              >
-                <p className="font-poppins font-bold text-lime text-sm mb-3">Fun Facts ✦</p>
-                <div className="space-y-2">
+                <div className="grid grid-cols-1 gap-4">
                   {funFacts.map((fact, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <span className="text-base">{fact.icon}</span>
-                      <span className="font-poppins text-cream/70 text-xs">{fact.text}</span>
-                    </div>
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1, duration: 0.5 }}
+                      whileHover={{ scale: 1.03, x: 10 }}
+                      className="group bg-white border border-dark/5 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-lime/40 transition-all duration-300 flex items-center gap-4"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-dark/5 flex items-center justify-center text-2xl group-hover:bg-lime/20 transition-colors">
+                        {fact.icon}
+                      </div>
+                      <span className="font-poppins font-bold text-dark/80 text-sm md:text-base">
+                        {fact.text}
+                      </span>
+                    </motion.div>
                   ))}
                 </div>
-              </motion.div>
+
+                {/* Decorative elements to fill space */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                  className="absolute -top-10 -right-10 opacity-20"
+                >
+                  <StarDecor size={60} color="#F0097A" />
+                </motion.div>
+                <motion.div 
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute -bottom-6 -left-6 opacity-20"
+                >
+                  <SparkleDecor size={40} color="#C8F060" />
+                </motion.div>
+              </div>
             </div>
           </FadeInLeft>
 
