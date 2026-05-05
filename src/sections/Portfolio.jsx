@@ -1,3 +1,4 @@
+// Trigger Vercel Build - Project update
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FadeInUp, SectionTag, StarDecor } from '../components/AnimUtils'
