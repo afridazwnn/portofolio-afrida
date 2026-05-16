@@ -135,11 +135,10 @@ export default function About() {
             </h2>
 
             <p className="font-poppins text-dark/60 text-base leading-relaxed mb-4">
-              Hello! I'm <strong className="text-dark">Afrida Rizwana</strong>, a detail-oriented freelancer specializing in data entry and social media management, passionate about helping businesses stay organized and grow their online presence.
+              Hello! I'm <strong className="text-dark">Afrida Rizwana</strong>, a graduate of Software and Game Development (PPLG) with a strong interest in social media, data entry, design, and frontend web development. I enjoy learning new things, working in teams, and constantly improving my skills while giving my best in every opportunity.
             </p>
             <p className="font-poppins text-dark/60 text-base leading-relaxed mb-8">
-              With a background in software engineering and digital work, I work at the intersection of accuracy and creativity. I believe that great work is not only about getting tasks done, but also about delivering them efficiently, neatly, and with real value.
-            </p>
+              I also have internship experience and have been actively involved in event committees as part of the PDD division, including Neospragma 2024 & 2025 and Transforkr4b. In addition, I served as the Head of PDD in the OSIS of SMKN 4 Bogor for one period.            </p>
 
             {/* Stats grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">

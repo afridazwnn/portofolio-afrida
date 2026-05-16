@@ -145,8 +145,7 @@ export default function Hero() {
               variants={itemVariants}
               className="font-poppins text-cream/60 text-lg leading-relaxed max-w-lg mb-10"
             >
-              I craft digital experiences that are bold, beautiful, and actually work.
-              Obsessed with pixel-perfect design and seamless interactions.
+              interested in social media, data entry, design and also web frontend development.
             </motion.p>
 
             {/* CTA Buttons */}
