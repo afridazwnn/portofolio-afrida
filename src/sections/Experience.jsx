@@ -22,6 +22,16 @@ const experiences = [
     tags: ['Data Entry', 'Social Media', 'Frontend Mobile', 'Virtual Assistant'],
     color: '#F0097A',
     side: 'left',
+  },
+  {
+    type: 'Work',
+    role: 'Salon Therapist',
+    company: 'Glarisa Beauty Bar',
+    period: 'Juli 2026 — Sekarang',
+    description: 'Providing professional beauty treatments and personal care services at Glarisa Beauty Bar, maintaining high hygiene standards, ensuring client comfort, and delivering exceptional customer satisfaction.',
+    tags: ['Salon Therapist', 'Beauty Care', 'Customer Service', 'Personal Care'],
+    color: '#E84DC0',
+    side: 'right',
   }
 ]
 
