@@ -129,7 +129,7 @@ export default function Hero() {
 
             {/* Role tags */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3 my-6">
-              {['UI/UX Designer', 'Frontend Dev', 'Social Media Manager'].map((r) => (
+              {['UI/UX Designer', 'Basic Hospitality', 'Social Media Manager'].map((r) => (
                 <span
                   key={r}
                   className="px-4 py-1.5 rounded-full font-poppins text-sm font-medium"
