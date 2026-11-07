@@ -27,11 +27,21 @@ const experiences = [
     type: 'Work',
     role: 'Salon Therapist',
     company: 'Glarisa Beauty Bar',
-    period: 'Juli 2026 — Sekarang',
+    period: 'Juli 2026 — November 2026',
     description: 'Providing professional beauty treatments and personal care services at Glarisa Beauty Bar, maintaining high hygiene standards, ensuring client comfort, and delivering exceptional customer satisfaction.',
     tags: ['Salon Therapist', 'Beauty Care', 'Customer Service', 'Personal Care'],
     color: '#E84DC0',
     side: 'right',
+  },
+   {
+    type: 'Work',
+    role: 'Cashier',
+    company: 'Dapur ibu Nail',
+    period: 'November 2026 — Sekarang',
+    description: 'Detail-oriented and customer-focused Cashier with a proven track record of managing daily front-of-house operations and financial transactions in a fast-paced food and beverage environment. Skilled in point-of-sale (POS) system operation, accurate cash reconciliation, and delivering exceptional customer service to enhance overall dining experiences.',
+    tags: ['Point Of Sale', 'Cash Handling', 'Order Processing'],
+    color: '#C8F060',
+    side: 'left',
   }
 ]
 
